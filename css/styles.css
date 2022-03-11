@@ -13,7 +13,7 @@
 
  .tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
  .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-   overflow:hidden;padding:40px 40px;word-break:normal;}
+   overflow:hidden;padding:20px 20px;word-break:normal;}
  .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
    font-weight:normal;overflow:hidden;padding:40px 40px;word-break:normal;}
  .tg .tg-game{border-color:inherit;text-align:center;vertical-align:middle}
@@ -22,8 +22,13 @@
 .tg-game:hover {
   background-color: #12b1d15b;
 }
-
-
+thead, tbody, tfoot, tr, td, th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  width: 75px;
+  height: 75px;
+}
 
 :root {
   --bs-blue: #0d6efd;
