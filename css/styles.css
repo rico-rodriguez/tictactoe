@@ -11,25 +11,28 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- .tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
- .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-   overflow:hidden;padding:20px 20px;word-break:normal;}
- .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-   font-weight:normal;overflow:hidden;padding:40px 40px;word-break:normal;}
- .tg .tg-game{border-color:inherit;text-align:center;vertical-align:middle}
- @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}
-
-.tg-game:hover {
+.gameButton:hover {
   background-color: #12b1d15b;
 }
-thead, tbody, tfoot, tr, td, th {
-  border-color: inherit;
-  border-style: solid;
+.gameButton {
+  border: 1px solid rgb(0, 0, 0);
   border-width: 0;
   width: 75px;
   height: 75px;
-}
+  border-radius: 5px;
+  background-color: #04607217;
+  margin: 1px;
 
+}
+.gameContainer {
+position: relative;
+
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

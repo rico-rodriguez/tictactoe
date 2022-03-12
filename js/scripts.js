@@ -1,3 +1,19 @@
+cell1 = document.getElementById('cell1');
+cell2 = document.getElementById('cell2');
+cell3 = document.getElementById('cell3');
+cell4 = document.getElementById('cell4');
+cell5 = document.getElementById('cell5');
+cell6 = document.getElementById('cell6');
+cell7 = document.getElementById('cell7');
+cell8 = document.getElementById('cell8');
+cell9 = document.getElementById('cell9');
+let turns = [];
+let test = 
+[
+ , , ,
+ , , , 
+ , , ,
+]
 class Player {
     constructor(name, active) {
       this.name = name;
@@ -6,74 +22,254 @@ class Player {
   }
 const Player1 = new Player('Player1', true);
 const Player2 = new Player('Player2', true);
-function generateCellNumber() {
-//Generate an array number for each table cell
-        let cellNumbers = [];
-        let num = 1
-        for (var i = 0; i < 10; i++) {
-            cellNumvar = num++;
-            cellNumbers.push(cellNumvar);
-        }
-         $(document).ready(function () {
-        $('td').each(function (index) {
-            $(this).attr('data-cell', cellNumbers[index]);
-        })
-        $('td').on('click', function(){
-            console.log($(this).attr('data-cell'));
-            console.log($(this));
 
-            $(this).attr('data-cell')
-        })
+
+function playGame() {
 //click player1 button
-        $('#player1').on('click', function(){
-            playerMark = true;
-            Player2.active = false;
-            Player1.active = true;
-            gamePiece = x;
-            console.log($(this));
-            // $('#player2').addClass('disabled');
-            // $('#player1').addClass('disabled');
-        })
+    player1Button();
 //click player2 button
-        $('#player2').on('click', function(){
-            playerMark = false;
+    player2Button();
+//reset button
+    resetButton();
+//Clicking on each cell - playing game 
+    buttonClickLogic();
+    };
+
+playGame();
+
+console.log(test)
+
+function player1Button() {
+    $('#player1').on('click', function(){
+        Player2.active = false;
+        Player1.active = true;
+        gamePiece = x;
+        console.log($(this));
+        $('#player2').addClass('disabled');
+        $('#player1').addClass('disabled');
+        console.log(turns)
+    })
+}
+
+function player2Button() {
+    $('#player2').on('click', function(){
+        Player1.active = false;
+        Player2.active = true;
+        gamePiece = circle;
+        $('#player2').addClass('disabled');
+        $('#player1').addClass('disabled');
+        console.log($(this));
+    })
+}
+
+function resetButton() {
+    $('#reset').on('click', function(){
+        gamePiece = null;
+        $('#player2').removeClass('disabled');
+        $('#player1').removeClass('disabled');
+        turns = []
+        console.log($(this));
+    })
+}
+
+function buttonClickLogic() {
+    $('#cell1').click(function() {            
+        if(Player1.active == true & turns.length <= 9){
+            ($(this).html(gamePiece));
+            turns.push("X");
             Player1.active = false;
             Player2.active = true;
-            gamePiece = circle;
-            // $('#player2').addClass('disabled');
-            // $('#player1').addClass('disabled');
-            console.log($(this));
-        })
-//reset button
-        $('#reset').on('click', function(){
-            playerMark = null;
+            $('#player1').addClass('disabled');
+            $('#player2').removeClass('disabled');
+            test[0] = "X"
             gamePiece = null;
-            // $('#player2').removeClass('disabled');
-            // $('#player1').removeClass('disabled');
-            console.log($(this));
-        })
-//Clicking on each cell - playing game
-        $('td').click(function() {            
-            if(playerMark){
-                ($(this).html(gamePiece));
-            }else{
-
-                ($(this).html(gamePiece));
-            }
-        });
-        //on click, change html to gamePiece
+    
+        }else if(Player2.active == true & turns.length <= 9){
+            ($(this).html(gamePiece));
+            turns.push("X");
+            Player2.active = false;
+            Player1.active = true;
+            $('#player2').addClass('disabled');
+            $('#player1').removeClass('disabled');
+             test[0] = "O"
+            gamePiece = null;
+       }
     });
-}
-generateCellNumber();
-
-
-
-
-
-let circle = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-<path fill="currentColor" d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-</svg>`
-let x = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-<path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-</svg>
-`
+    $('#cell2').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+        ($(this).html(gamePiece));
+        turns.push("X");
+        Player1.active = false;
+        Player2.active = true;
+        $('#player1').addClass('disabled');
+        $('#player2').removeClass('disabled');
+        test[1] = "X"
+        gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+        ($(this).html(gamePiece));
+        turns.push("X");
+        Player2.active = false;
+        Player1.active = true;
+        $('#player2').addClass('disabled');
+        $('#player1').removeClass('disabled');
+        test[1] = "O"
+        gamePiece = null;
+    }
+    });
+    $('#cell3').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[2] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[2] = "O"
+    gamePiece = null;
+    } 
+    });
+    $('#cell4').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[3] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[3] = "O"
+    gamePiece = null;
+    } 
+    });
+    $('#cell5').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[4] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[4] = "O"
+    gamePiece = null;
+    } 
+    });
+    $('#cell6').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[5] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[5] = "O"
+    gamePiece = null;
+    } 
+    });
+    $('#cell7').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[6] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[6] = "O"
+    gamePiece = null;
+    } 
+    });
+    $('#cell8').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[7] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[7] = "O"
+    gamePiece = null;
+    } 
+    });
+    $('#cell9').click(function() {            
+    if(Player1.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player1.active = false;
+    Player2.active = true;
+    $('#player1').addClass('disabled');
+    $('#player2').removeClass('disabled');
+    test[8] = "X"
+    gamePiece = null;
+    
+    }else if(Player2.active == true & turns.length <= 9){
+    ($(this).html(gamePiece));
+    turns.push("X");
+    Player2.active = false;
+    Player1.active = true;
+    $('#player2').addClass('disabled');
+    $('#player1').removeClass('disabled');
+    test[8] = "O"
+    gamePiece = null;
+    } 
+    });
+    //END OF BUTTON CLICK LOGIC
+    }
