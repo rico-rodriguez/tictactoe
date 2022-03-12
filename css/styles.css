@@ -22,7 +22,12 @@
   border-radius: 5px;
   background-color: #04607217;
   margin: 1px;
-
+}
+.logo {
+  border-radius: 99px;
+}
+.logo:hover {
+  border: 2px solid rgb(0, 195, 255);
 }
 .gameContainer {
 position: relative;
