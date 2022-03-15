@@ -43,10 +43,8 @@ function player1Button() {
         Player2.active = false;
         Player1.active = true;
         gamePiece = x;
-        console.log($(this));
         $('#player2').addClass('disabled');
         $('#player1').addClass('disabled');
-        console.log(turns)
         
     })
 }
@@ -59,7 +57,6 @@ function player2Button() {
         gamePiece = circle;
         $('#player2').addClass('disabled');
         $('#player1').addClass('disabled');
-        console.log($(this));
     })
 }
 
@@ -69,7 +66,7 @@ function resetButton() {
         $('#player2').removeClass('disabled');
         $('#player1').removeClass('disabled');
         turns = []
-        console.log($(this));
+        test = [, , , , , , , , , ]
     })
 }
 
